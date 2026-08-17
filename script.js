@@ -35,3 +35,13 @@ if ('IntersectionObserver' in window && sections.length) {
   }, { rootMargin: '-20% 0px -60% 0px', threshold: [0.01, 0.2, 0.5] });
   sections.forEach((section) => navObserver.observe(section));
 }
+
+const faqItems = [...document.querySelectorAll('.faq details')];
+faqItems.forEach((item) => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    faqItems.forEach((other) => {
+      if (other !== item && other.open) other.open = false;
+    });
+  });
+});
