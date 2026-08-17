@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Maksym Blyshchyk — Software Engineering student and backend/automation developer. Python, C/C++, C#, Java, JavaScript, .NET, FastAPI, APIs, bots, parsing and infrastructure.">
-  <meta name="theme-color" content="#070b14">
-  <title>Maksym Blyshchyk — Software Engineering Portfolio</title>
+  <meta name="description" content="Maksym Blyshchyk — Software Developer. Web applications, bots, APIs, integrations, automation, parsers, data tools and deployment.">
+  <meta name="theme-color" content="#060a12">
+  <title>Maksym Blyshchyk — Software Developer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,85 +13,92 @@
 
   <header class="header">
     <a class="brand" href="#home"><span class="brand-icon">&lt;/&gt;</span> MB</a>
-    <nav class="nav">
-      <a href="#about">Про мене</a>
+    <nav class="nav" aria-label="Навігація">
+      <a href="#services">Напрями</a>
       <a href="#projects">Проєкти</a>
-      <a href="#skills">Навички</a>
-      <a href="#education">Освіта</a>
+      <a href="#skills">Стек</a>
       <a href="#contacts">Контакти</a>
     </nav>
-    <a class="small-btn" href="https://github.com/NoobITafk" target="_blank" rel="noreferrer">GitHub ↗</a>
+    <a class="small-btn header-cta" href="https://t.me/MaksBlischik" target="_blank" rel="noreferrer">Обговорити проєкт</a>
   </header>
 
   <main>
     <section class="hero wrap" id="home">
       <div class="hero-copy reveal">
-        <div class="eyebrow">SOFTWARE ENGINEERING • BACKEND • AUTOMATION</div>
-        <h1>Maksym<br><span>Blyshchyk</span></h1>
+        <div class="eyebrow">SOFTWARE DEVELOPER • WEB • BOTS • AUTOMATION</div>
+        <p class="intro-name">Maksym Blyshchyk</p>
+        <h1>Розробляю програмні рішення <span>під конкретну задачу.</span></h1>
         <p class="lead">
-          Розробляю backend-сервіси, Telegram-ботів, API-інтеграції, парсери,
-          внутрішні інструменти та AI-assisted автоматизації. Поєдную навчальну
-          базу з інженерії ПЗ з практичними pet- і portfolio-проєктами.
+          Вебзастосунки, Telegram-боти, API та інтеграції, парсери, автоматизація,
+          робота з даними, внутрішні інструменти й розгортання. Не прив’язуюсь до одного типу проєктів — підбираю стек під задачу.
         </p>
         <div class="actions">
-          <a class="primary-btn" href="#projects">Переглянути проєкти</a>
-          <a class="ghost-btn" href="mailto:maks2006bl@gmail.com">Написати мені</a>
+          <a class="primary-btn" href="https://t.me/MaksBlischik" target="_blank" rel="noreferrer">Обговорити проєкт →</a>
+          <a class="ghost-btn" href="#projects">Переглянути роботи</a>
         </div>
-        <div class="mini-stack">
-          <span>Python</span><span>C / C++</span><span>C# / .NET</span><span>Java</span>
-          <span>JavaScript</span><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span>
+        <div class="trust-line">
+          <span><b>9</b> мов / технологічних мов</span>
+          <span><b>5+</b> сильних portfolio-проєктів</span>
+          <span><b>Private code</b> для комерційних заготовок</span>
         </div>
       </div>
 
       <aside class="profile-card reveal">
-        <div class="avatar-wrap">
-          <img src="https://avatars.githubusercontent.com/u/61797448?v=4" alt="Maksym Blyshchyk">
+        <div class="profile-top">
+          <div class="avatar-wrap"><img src="https://avatars.githubusercontent.com/u/61797448?v=4" alt="Maksym Blyshchyk"></div>
+          <div><div class="availability"><i></i> Доступний для нових проєктів</div><h2>Software Developer</h2></div>
         </div>
-        <div class="availability"><i></i> Open to freelance projects</div>
-        <h2>Backend & Automation Developer</h2>
-        <p>
-          Студент 3 курсу Software Engineering. Основний фокус — Python/.NET,
-          API, автоматизація, бази даних, Telegram-боти та надійні backend-процеси.
-        </p>
-        <div class="quick-links">
-          <a href="https://t.me/MaksBlischik" target="_blank" rel="noreferrer">Telegram <b>@MaksBlischik</b></a>
-          <a href="mailto:maks2006bl@gmail.com">Email <b>maks2006bl@gmail.com</b></a>
-          <a href="tel:+380671453788">Телефон <b>+380 67 145 37 88</b></a>
-          <a href="https://github.com/NoobITafk" target="_blank" rel="noreferrer">GitHub <b>NoobITafk</b></a>
+        <p>Можу взяти як окремий модуль, так і невеликий проєкт повністю: від структури й backend-логіки до інтеграцій, тестування та запуску.</p>
+        <div class="capability-list">
+          <span>Web applications</span><span>Telegram bots</span><span>API integrations</span>
+          <span>Parsing & data</span><span>Automation</span><span>Deployment</span>
         </div>
+        <a class="profile-link" href="#projects">Подивитися, що вже робив ↓</a>
       </aside>
     </section>
 
-    <section class="wrap section" id="about">
-      <div class="section-head reveal">
-        <div><span>01</span><h2>Коротко про мене</h2></div>
-      </div>
-      <div class="about-grid">
-        <p class="about-main reveal">
-          Мені цікаві задачі, де потрібно не просто написати окремий скрипт,
-          а зібрати робочий процес: прийняти дані, перевірити їх, зберегти,
-          інтегрувати зовнішній API, обробити помилки та дати користувачу
-          зрозумілий інтерфейс. Окремо розвиваюсь у локальних AI-інструментах,
-          автоматизації та інфраструктурі для розгортання.
-        </p>
-        <div class="about-cards reveal">
-          <div><small>FOCUS</small><b>Backend • APIs • Automation</b></div>
-          <div><small>ENGINEERING</small><b>Testing • Logging • Error handling</b></div>
-          <div><small>EXTRA</small><b>IoT • 3D character modeling • AI tools</b></div>
-        </div>
-      </div>
+    <section class="services wrap" id="services">
+      <div class="service-card reveal"><small>01</small><b>Web applications</b><span>Frontend + backend, кабінети, CRM, dashboards</span></div>
+      <div class="service-card reveal"><small>02</small><b>Bots</b><span>Telegram, бізнес-логіка, ролі, оплати, повідомлення</span></div>
+      <div class="service-card reveal"><small>03</small><b>API & integrations</b><span>Webhook, CRM, сторонні API, синхронізація даних</span></div>
+      <div class="service-card reveal"><small>04</small><b>Parsing & data</b><span>CSV/XLSX/XML/JSON, каталоги, нормалізація, export</span></div>
+      <div class="service-card reveal"><small>05</small><b>Automation</b><span>Робочі процеси, AI-assisted tools, фонові задачі</span></div>
+      <div class="service-card reveal"><small>06</small><b>Deployment</b><span>Docker, Linux, Nginx, PostgreSQL, health checks</span></div>
     </section>
 
     <section class="wrap section" id="projects">
       <div class="section-head reveal">
-        <div><span>02</span><h2>Вибрані проєкти</h2></div>
-        <p>
-          Це сильніші приватні проєкти. Вихідний код не публікується;
-          у портфоліо показані лише функціональність, архітектурна ідея та стек.
-        </p>
+        <div><span>01</span><h2>Проєкти, які показують рівень</h2></div>
+        <p>Основний код сильніших заготовок приватний. Тут показую функціональність і технічну частину без відкриття вихідного коду.</p>
       </div>
 
-      <article class="project reveal">
+      <article class="project featured reveal">
+        <div class="project-visual visual-hr">
+          <div class="visual-window hr-window">
+            <div class="visual-top"><span></span><span></span><span></span><b>HRReserveSystem</b></div>
+            <div class="hr-stats"><i><small>CANDIDATES</small><strong>124</strong></i><i><small>OPEN VACANCIES</small><strong>18</strong></i><i><small>INTERVIEWS</small><strong>27</strong></i></div>
+            <div class="hr-pipeline"><span>New</span><span>Screening</span><span>Interview</span><span>Offer</span><span>Hired</span></div>
+            <div class="hr-table"><em></em><em></em><em></em><em></em></div>
+          </div>
+          <span class="public-badge">FULL PROJECT</span>
+        </div>
+        <div class="project-info">
+          <div class="project-kicker">.NET • FULL WEB APPLICATION</div>
+          <h3>HRReserveSystem</h3>
+          <p>
+            Повноцінна HR-система: кандидати, вакансії, заявки, співбесіди, ролі,
+            soft skills, завантаження резюме, REST API, health checks, Docker і PostgreSQL.
+            Є авторизація та інтеграційні тести.
+          </p>
+          <div class="chips"><span>.NET 8</span><span>ASP.NET Core MVC</span><span>EF Core</span><span>Identity</span><span>PostgreSQL</span><span>Docker</span><span>xUnit</span></div>
+          <div class="project-actions">
+            <a class="project-btn" href="https://github.com/MaksBlyshchyk/HRReserveSystem" target="_blank" rel="noreferrer">Переглянути проєкт ↗</a>
+            <span class="project-note">Репозиторій зараз на другому моєму GitHub-акаунті</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reverse reveal">
         <div class="project-visual visual-supplier">
           <div class="visual-window">
             <div class="visual-top"><span></span><span></span><span></span><b>SupplierSync</b></div>
@@ -104,161 +111,92 @@
         <div class="project-info">
           <div class="project-kicker">SAAS • DATA PIPELINE</div>
           <h3>SupplierSync</h3>
-          <p>
-            Multi-tenant система для імпорту прайс-листів постачальників,
-            нормалізації товарів, зіставлення з каталогом, вибору постачальника,
-            розрахунку цін та експорту магазинних фідів.
-          </p>
+          <p>Система для імпорту прайс-листів постачальників, нормалізації та зіставлення товарів, розрахунку цін, вибору пропозицій і експорту магазинних фідів.</p>
           <div class="chips"><span>Python</span><span>FastAPI</span><span>React</span><span>PostgreSQL</span><span>Redis</span><span>Celery</span><span>Playwright</span></div>
-          <span class="project-note">Код приватний • live/demo deployment можна підключити окремо</span>
-        </div>
-      </article>
-
-      <article class="project reverse reveal">
-        <div class="project-visual visual-integration">
-          <div class="visual-window">
-            <div class="visual-top"><span></span><span></span><span></span><b>IntegrationHub</b></div>
-            <div class="pipeline">
-              <div>Webhook<small>validated</small></div><em>→</em><div>Event ledger<small>durable</small></div><em>→</em><div>Worker<small>retry</small></div><em>→</em><div>CRM<small>delivered</small></div>
-            </div>
-            <div class="status-line"><i class="ok"></i><b>Completed</b><span>Idempotent processing · retry history · sanitized payload</span></div>
-          </div>
-          <span class="private-badge">PRIVATE SOURCE</span>
-        </div>
-        <div class="project-info">
-          <div class="project-kicker">.NET • INTEGRATIONS</div>
-          <h3>IntegrationHub</h3>
-          <p>
-            .NET 8 сервіс для надійного webhook → CRM процесу: валідація,
-            idempotency, PostgreSQL event ledger, фоновий worker, retry з backoff,
-            health checks, dashboard та інтеграційні тести.
-          </p>
-          <div class="chips"><span>.NET 8</span><span>ASP.NET Core</span><span>EF Core</span><span>PostgreSQL</span><span>Docker</span><span>xUnit</span></div>
-          <span class="project-note">Код приватний • можна розгорнути як публічний demo-сервіс</span>
+          <span class="project-note">Private code • підходить для окремого live demo</span>
         </div>
       </article>
 
       <article class="project reveal">
-        <div class="project-visual visual-bot">
+        <div class="project-visual visual-integration">
           <div class="visual-window">
-            <div class="visual-top"><span></span><span></span><span></span><b>Telegram Business Platform</b></div>
-            <div class="bot-chat"><div class="bubble left">Application received</div><div class="bubble right">Approve ✓</div><div class="bubble left">Invite link created</div><div class="bubble right">Broadcast: 248 delivered</div></div>
+            <div class="visual-top"><span></span><span></span><span></span><b>IntegrationHub</b></div>
+            <div class="pipeline"><div>Webhook<small>validate</small></div><em>→</em><div>Ledger<small>persist</small></div><em>→</em><div>Worker<small>retry</small></div><em>→</em><div>CRM<small>deliver</small></div></div>
+            <div class="status-line"><i></i><b>Completed</b><span>Idempotency · retry history · sanitized payload</span></div>
           </div>
           <span class="private-badge">PRIVATE SOURCE</span>
         </div>
         <div class="project-info">
-          <div class="project-kicker">TELEGRAM • BUSINESS LOGIC</div>
-          <h3>Telegram Business Platform</h3>
-          <p>
-            Конфігурована основа для приватних клубів і бізнес-ботів: анкети,
-            ручна перевірка оплат, ролі, інвайти, антиспам, адмін-функції,
-            розсилки, міграції та асинхронна база даних.
-          </p>
-          <div class="chips"><span>Python</span><span>aiogram 3</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Redis</span><span>Alembic</span><span>Docker</span></div>
-          <span class="project-note">Код приватний • демонстрація через окремого demo-бота</span>
+          <div class="project-kicker">.NET • API INTEGRATIONS</div>
+          <h3>IntegrationHub</h3>
+          <p>.NET 8 сервіс для webhook → CRM інтеграцій: валідація, idempotency, PostgreSQL event ledger, background worker, exponential backoff, dashboard і тести.</p>
+          <div class="chips"><span>.NET 8</span><span>ASP.NET Core</span><span>EF Core</span><span>PostgreSQL</span><span>Docker</span><span>xUnit</span></div>
+          <span class="project-note">Private code • можна розгорнути публічний demo dashboard</span>
         </div>
       </article>
 
       <article class="project reverse reveal">
-        <div class="project-visual visual-parser">
+        <div class="project-visual visual-bot">
           <div class="visual-window">
-            <div class="visual-top"><span></span><span></span><span></span><b>Parser & Export Engine</b></div>
-            <div class="terminal"><span>$ scrape supplier_catalog</span><span class="green">✓ 1264 records validated</span><span>→ deduplicate / normalize / history</span><span class="blue">export: CSV · XLSX · JSON · XML · YML</span></div>
+            <div class="visual-top"><span></span><span></span><span></span><b>Business Bot Platform</b></div>
+            <div class="bot-chat"><div class="bubble left">New application received</div><div class="bubble right">Approve ✓</div><div class="bubble left">Private invite created</div><div class="bubble right">Broadcast delivered</div></div>
           </div>
           <span class="private-badge">PRIVATE SOURCE</span>
         </div>
         <div class="project-info">
-          <div class="project-kicker">PARSING • EXPORT</div>
+          <div class="project-kicker">BOT • BUSINESS WORKFLOWS</div>
+          <h3>Business Bot Platform</h3>
+          <p>Конфігурована платформа для Telegram-рішень: анкети, ролі, перевірка оплат, інвайти, антиспам, адмін-функції, розсилки, база даних і міграції.</p>
+          <div class="chips"><span>Python</span><span>aiogram 3</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Redis</span><span>Alembic</span><span>Docker</span></div>
+          <span class="project-note">Не позиціоную себе лише як Telegram-розробника — це один із типів задач</span>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-visual visual-parser">
+          <div class="visual-window">
+            <div class="visual-top"><span></span><span></span><span></span><b>Parser & Export Engine</b></div>
+            <div class="terminal"><span>$ scrape supplier_catalog</span><span class="green">✓ records validated</span><span>→ normalize / deduplicate / history</span><span class="blue">CSV · XLSX · JSON · XML · YML</span></div>
+          </div>
+          <span class="private-badge">PRIVATE SOURCE</span>
+        </div>
+        <div class="project-info">
+          <div class="project-kicker">PARSING • DATA EXPORT</div>
           <h3>Parser & Export Engine</h3>
-          <p>
-            Конфігураційний рушій для каталогів і прайс-моніторингу з HTTP та
-            browser engines, валідацією, дедуплікацією, resumable jobs,
-            історією цін та експортом у поширені формати.
-          </p>
+          <p>Конфігураційний рушій для каталогів і прайс-моніторингу з HTTP/Playwright engines, валідацією, дедуплікацією, resumable jobs, історією цін та багатоформатним export.</p>
           <div class="chips"><span>Python</span><span>httpx</span><span>BeautifulSoup</span><span>Playwright</span><span>Pydantic</span><span>PostgreSQL</span></div>
-          <span class="project-note">Код приватний • demo можна показувати на локальному тестовому каталозі</span>
+          <span class="project-note">Private code • можна демонструвати на локальному тестовому каталозі</span>
         </div>
       </article>
     </section>
 
     <section class="wrap section" id="skills">
       <div class="section-head reveal">
-        <div><span>03</span><h2>Стек і навчальний досвід</h2></div>
-        <p>Розділяю технології, які використовую в проєктах, і те, з чим працював у межах навчання.</p>
+        <div><span>02</span><h2>Технології та напрямки</h2></div>
+        <p>Не намагаюся показати однаковий рівень у кожній технології. Це стек, з яким працював у коді, проєктах або практичних завданнях.</p>
       </div>
-
       <div class="skill-panels">
-        <div class="skill-panel reveal">
-          <small>PROGRAMMING</small>
-          <h3>Мови</h3>
-          <div class="tag-cloud"><span>Python</span><span>C</span><span>C++</span><span>C#</span><span>Java</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span></div>
-        </div>
-        <div class="skill-panel reveal">
-          <small>BACKEND & WEB</small>
-          <h3>Розробка застосунків</h3>
-          <div class="tag-cloud"><span>FastAPI</span><span>.NET 8</span><span>ASP.NET Core</span><span>REST API</span><span>Entity Framework Core</span><span>SQLAlchemy</span><span>HTML</span><span>CSS</span><span>React</span></div>
-        </div>
-        <div class="skill-panel reveal">
-          <small>DATA & INFRA</small>
-          <h3>Дані та інфраструктура</h3>
-          <div class="tag-cloud"><span>PostgreSQL</span><span>SQLite</span><span>Redis</span><span>Docker</span><span>Docker Compose</span><span>Git</span><span>GitHub</span><span>Linux</span><span>Nginx</span></div>
-        </div>
-        <div class="skill-panel reveal">
-          <small>AUTOMATION & QUALITY</small>
-          <h3>Автоматизація і тестування</h3>
-          <div class="tag-cloud"><span>Telegram bots</span><span>Parsing</span><span>Playwright</span><span>Celery</span><span>pytest</span><span>xUnit</span><span>Ruff</span><span>mypy</span><span>Logging</span></div>
-        </div>
-        <div class="skill-panel reveal">
-          <small>AI</small>
-          <h3>AI-assisted tools</h3>
-          <div class="tag-cloud"><span>Ollama</span><span>Local LLM</span><span>OpenAI API integration</span><span>AI scoring</span><span>RAG concepts</span><span>Human-in-the-loop workflows</span></div>
-        </div>
-        <div class="skill-panel reveal">
-          <small>ACADEMIC / OTHER</small>
-          <h3>Інженерна база</h3>
-          <div class="tag-cloud"><span>OOP</span><span>Design patterns</span><span>Algorithms</span><span>Databases</span><span>Operating systems</span><span>Web & cloud</span><span>Microcontrollers</span><span>Sensors</span><span>IoT</span><span>3D character modeling</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap section education-section" id="education">
-      <div class="section-head reveal">
-        <div><span>04</span><h2>Освіта</h2></div>
-      </div>
-      <div class="education-card reveal">
-        <div>
-          <small>2024 — теперішній час</small>
-          <h3>Software Engineering / «Інтернет речей»</h3>
-          <p>Національний університет водного господарства та природокористування, бакалаврська програма.</p>
-        </div>
-        <div class="education-list">
-          <span>Програмування та ООП</span><span>Бази даних</span><span>Операційні системи</span>
-          <span>Веб і хмарні технології</span><span>Мікроконтролери та системне програмування</span>
-          <span>Сенсори й виконавчі елементи</span><span>Мобільна розробка</span><span>Командна робота в IT</span>
-        </div>
+        <div class="skill-panel reveal"><small>PROGRAMMING</small><h3>Мови</h3><div class="tag-cloud"><span>Python</span><span>C</span><span>C++</span><span>C#</span><span>Java</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span><span>Bash / Shell</span></div></div>
+        <div class="skill-panel reveal"><small>WEB & BACKEND</small><h3>Застосунки</h3><div class="tag-cloud"><span>FastAPI</span><span>.NET 8</span><span>ASP.NET Core</span><span>REST API</span><span>Entity Framework Core</span><span>SQLAlchemy</span><span>React</span><span>HTML</span><span>CSS</span></div></div>
+        <div class="skill-panel reveal"><small>DATA & INFRASTRUCTURE</small><h3>Дані та запуск</h3><div class="tag-cloud"><span>PostgreSQL</span><span>SQLite</span><span>Redis</span><span>Docker</span><span>Docker Compose</span><span>Git</span><span>GitHub</span><span>Linux</span><span>Nginx</span></div></div>
+        <div class="skill-panel reveal"><small>AUTOMATION & QUALITY</small><h3>Інженерні інструменти</h3><div class="tag-cloud"><span>Playwright</span><span>Celery</span><span>pytest</span><span>xUnit</span><span>Ruff</span><span>mypy</span><span>Logging</span><span>CI</span><span>Health checks</span></div></div>
+        <div class="skill-panel reveal"><small>AI</small><h3>AI integrations</h3><div class="tag-cloud"><span>Ollama</span><span>Local LLM</span><span>OpenAI API</span><span>AI scoring</span><span>RAG concepts</span><span>Human-in-the-loop</span></div></div>
+        <div class="skill-panel reveal"><small>ADDITIONAL</small><h3>Додатковий досвід</h3><div class="tag-cloud"><span>OOP</span><span>Algorithms</span><span>Databases</span><span>Operating systems</span><span>Web & cloud</span><span>Microcontrollers</span><span>Sensors</span><span>IoT</span><span>3D character modeling</span></div></div>
       </div>
     </section>
 
     <section class="wrap section contact" id="contacts">
-      <div class="contact-intro reveal">
-        <div class="eyebrow">CONTACT</div>
-        <h2>Є задача для backend або автоматизації?</h2>
-        <p>Найшвидше зв’язатися зі мною через Telegram, телефон або email.</p>
-      </div>
+      <div class="contact-intro reveal"><div class="eyebrow">CONTACT</div><h2>Є задача? Покажи ТЗ — скажу, як її реалізувати.</h2><p>Можна написати в Telegram або email. Для швидкого обговорення — Telegram.</p></div>
       <div class="contact-grid reveal">
-        <a href="https://t.me/MaksBlischik" target="_blank" rel="noreferrer"><small>TELEGRAM</small><b>@MaksBlischik</b><span>Написати ↗</span></a>
+        <a class="contact-primary" href="https://t.me/MaksBlischik" target="_blank" rel="noreferrer"><small>TELEGRAM</small><b>@MaksBlischik</b><span>Написати зараз →</span></a>
         <a href="mailto:maks2006bl@gmail.com"><small>EMAIL</small><b>maks2006bl@gmail.com</b><span>Надіслати лист ↗</span></a>
         <a href="tel:+380671453788"><small>PHONE</small><b>+380 67 145 37 88</b><span>Подзвонити ↗</span></a>
-        <a href="https://github.com/NoobITafk" target="_blank" rel="noreferrer"><small>GITHUB</small><b>NoobITafk</b><span>Відкрити ↗</span></a>
+        <a href="https://github.com/NoobITafk" target="_blank" rel="noreferrer"><small>GITHUB</small><b>NoobITafk</b><span>Відкрити профіль ↗</span></a>
       </div>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <span>© <span id="year"></span> Maksym Blyshchyk</span>
-    <span>Private source • Public portfolio</span>
-  </footer>
-
+  <footer class="wrap footer"><span>© <span id="year"></span> Maksym Blyshchyk</span><span>Software Developer • Ukraine</span></footer>
   <script src="script.js"></script>
 </body>
 </html>
