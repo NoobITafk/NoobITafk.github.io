@@ -1,11 +1,11 @@
-document.getElementById("year").textContent=new Date().getFullYear();
-const sections=[...document.querySelectorAll("section[id]")];
-const links=[...document.querySelectorAll(".desktop-nav a")];
-const setActive=()=>{const y=window.scrollY+150;let id="";for(const s of sections){if(s.offsetTop<=y)id=s.id}links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+id))};
-setActive();window.addEventListener("scroll",setActive,{passive:true});
-const mobileCta=document.querySelector(".mobile-cta");
-const heroCta=document.querySelector("[plerdy-tracking-id='hero-telegram'],[plerdy-tracking-id='hero-telegram-en']");
-if(mobileCta&&heroCta&&"IntersectionObserver"in window){
-  const observer=new IntersectionObserver(([entry])=>mobileCta.classList.toggle("show",!entry.isIntersecting),{threshold:.15});
-  observer.observe(heroCta);
+document.getElementById('year').textContent = new Date().getFullYear();
+const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    const active = entries.filter(e => e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if (!active) return;
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active.target.id));
+  }, {rootMargin:'-20% 0px -65% 0px', threshold:[0,.1,.5]});
+  sections.forEach(s => observer.observe(s));
 }
