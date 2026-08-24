@@ -4,6 +4,16 @@ const modal=document.getElementById('contactModal');
 const dialog=modal?.querySelector('.dialog');
 const message=document.getElementById('message');
 
+function loadProjectPreviewStyles(){
+  if(document.querySelector('link[data-project-preview]'))return;
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href='/projects-preview.css';
+  link.dataset.projectPreview='true';
+  document.head.appendChild(link);
+}
+loadProjectPreviewStyles();
+
 function openModal(){if(!modal)return;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>message?.focus(),80)}
 function closeModal(){if(!modal)return;modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 document.querySelectorAll('.contact-open').forEach(b=>b.addEventListener('click',openModal));
