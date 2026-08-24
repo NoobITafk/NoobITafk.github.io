@@ -11,6 +11,11 @@ function loadProjectPreviewStyles(){
   link.href='/projects-preview.css';
   link.dataset.projectPreview='true';
   document.head.appendChild(link);
+  const hrStyle=document.createElement('link');
+  hrStyle.rel='stylesheet';
+  hrStyle.href='/hr-demo.css';
+  hrStyle.dataset.hrDemoStyle='true';
+  document.head.appendChild(hrStyle);
 }
 function loadProjectHRDemo(){
   if(document.querySelector('script[data-hr-demo]'))return;
