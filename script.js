@@ -12,7 +12,16 @@ function loadProjectPreviewStyles(){
   link.dataset.projectPreview='true';
   document.head.appendChild(link);
 }
+function loadProjectHRDemo(){
+  if(document.querySelector('script[data-hr-demo]'))return;
+  const script=document.createElement('script');
+  script.src='/project-hr-demo.js';
+  script.defer=true;
+  script.dataset.hrDemo='true';
+  document.body.appendChild(script);
+}
 loadProjectPreviewStyles();
+loadProjectHRDemo();
 
 function openModal(){if(!modal)return;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>message?.focus(),80)}
 function closeModal(){if(!modal)return;modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
