@@ -1,52 +1,20 @@
 const isEN=document.documentElement.lang==='en';
-const AVAILABLE=true;
-const modal=document.getElementById('contactModal');
-const dialog=modal?.querySelector('.dialog');
+const projectModal=document.getElementById('projectModal');
+const contactModal=document.getElementById('contactModal');
 const message=document.getElementById('message');
-
-function loadProjectPreviewStyles(){
-  if(document.querySelector('link[data-project-preview]'))return;
-  const link=document.createElement('link');
-  link.rel='stylesheet';
-  link.href='/projects-preview.css';
-  link.dataset.projectPreview='true';
-  document.head.appendChild(link);
-  const hrStyle=document.createElement('link');
-  hrStyle.rel='stylesheet';
-  hrStyle.href='/hr-demo.css';
-  hrStyle.dataset.hrDemoStyle='true';
-  document.head.appendChild(hrStyle);
-}
-function loadProjectHRDemo(){
-  if(document.querySelector('script[data-hr-demo]'))return;
-  const script=document.createElement('script');
-  script.src='/project-hr-demo.js';
-  script.defer=true;
-  script.dataset.hrDemo='true';
-  document.body.appendChild(script);
-}
-loadProjectPreviewStyles();
-loadProjectHRDemo();
-
-function openModal(){if(!modal)return;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>message?.focus(),80)}
-function closeModal(){if(!modal)return;modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
-document.querySelectorAll('.contact-open').forEach(b=>b.addEventListener('click',openModal));
-document.querySelectorAll('.modal-close').forEach(b=>b.addEventListener('click',closeModal));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-
-function setupSenders(){document.querySelectorAll('[data-channel]').forEach(btn=>btn.addEventListener('click',()=>{const text=(message?.value||'').trim();if(!text){message?.focus();return}const encoded=encodeURIComponent(text);if(btn.dataset.channel==='telegram')window.open('https://t.me/MaksBlischik?text='+encoded,'_blank','noopener,noreferrer');if(btn.dataset.channel==='email'){const subject=encodeURIComponent(isEN?'Portfolio inquiry':'Запит із портфоліо');window.location.href=`mailto:maks2006bl@gmail.com?subject=${subject}&body=${encoded}`}}))}
-setupSenders();
-
-document.querySelectorAll('.stars').forEach(star=>star.addEventListener('click',()=>openReview(5)));
-function openReview(initial=5){if(!modal||!dialog)return;dialog.innerHTML=`<button class="dialog-close modal-close" aria-label="${isEN?'Close':'Закрити'}">×</button><span class="kicker">${isEN?'FEEDBACK':'ВІДГУК'}</span><h2>${isEN?'How was the cooperation?':'Як вам співпраця?'}</h2><p class="dialog-intro">${isEN?'Choose a rating and leave a few words. The review will be sent to me for approval.':'Оберіть оцінку та залиште кілька слів. Відгук спочатку надійде мені на перевірку.'}</p><div class="review-picker">${[1,2,3,4,5].map(n=>`<button type="button" data-rate="${n}">★</button>`).join('')}</div><textarea id="reviewText" rows="5" placeholder="${isEN?'Your review…':'Ваш відгук…'}"></textarea><input id="reviewName" class="review-name" placeholder="${isEN?'Your name':'Ваше ім’я'}"><button class="review-submit" type="button">${isEN?'Send review →':'Надіслати відгук →'}</button><p class="review-note">${isEN?'Reviews are checked before publication.':'Перед публікацією відгуки перевіряються.'}</p>`;openModal();const picker=dialog.querySelector('.review-picker');let value=initial;const paint=()=>picker.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('active',i<value));paint();picker.querySelectorAll('button').forEach((b,i)=>{b.addEventListener('mouseenter',()=>picker.querySelectorAll('button').forEach((x,j)=>x.classList.toggle('hovered',j<=i)));b.addEventListener('mouseleave',()=>picker.querySelectorAll('button').forEach(x=>x.classList.remove('hovered')));b.addEventListener('click',()=>{value=i+1;paint()})});dialog.querySelector('.modal-close').addEventListener('click',closeModal);dialog.querySelector('.review-submit').addEventListener('click',async()=>{const text=dialog.querySelector('#reviewText').value.trim();const name=dialog.querySelector('#reviewName').value.trim();if(!text||!name)return;const btn=dialog.querySelector('.review-submit');btn.disabled=true;btn.textContent=isEN?'Sending…':'Надсилаю…';const data={review_name:name,rating:value,review:text,_subject:isEN?'New portfolio review':'Новий відгук з портфоліо',_template:'table'};try{const r=await fetch('https://formsubmit.co/ajax/maks2006bl@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error();btn.textContent=isEN?'Sent':'Надіслано'}catch{btn.textContent=isEN?'Try again':'Спробуйте ще раз'}finally{setTimeout(()=>btn.disabled=false,900)}})}
-
-function setupCases(){const cases=[...document.querySelectorAll('details.case')];cases.forEach(item=>item.addEventListener('toggle',()=>{if(item.open)cases.forEach(other=>{if(other!==item)other.open=false})}));}
-setupCases();
-
-function setupAvailability(){document.querySelectorAll('.availability').forEach(el=>{el.innerHTML=`<span class="dot"></span>${isEN?(AVAILABLE?'Open to new projects':'Currently unavailable'):(AVAILABLE?'Відкритий до нових проєктів':'Тимчасово недоступний для нових проєктів')}`})}
-setupAvailability();
-
-function setupReveal(){const targets=document.querySelectorAll('.process-grid article,.platform-card,.case,.service-grid article,.stack-grid>div,.section-intro,.final-cta');if(!('IntersectionObserver'in window)){targets.forEach(el=>el.classList.add('is-visible'));return}targets.forEach((el,i)=>{el.classList.add('reveal');el.style.setProperty('--delay',Math.min(i*35,210)+'ms')});const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12});targets.forEach(el=>io.observe(el))}
-setupReveal();
-
-const links=[...document.querySelectorAll('.site-header nav a[href^="#"]')];const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);if('IntersectionObserver'in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-30% 0px -55% 0px',threshold:.01});sections.forEach(s=>io.observe(s))}
+const projectData={
+  hr:{type:isEN?'WEB · .NET · COURSE PROJECT':'WEB · .NET · КУРСОВИЙ ПРОЄКТ',title:'HRReserveSystem',text:isEN?'HR management system covering candidates, vacancies, applications, interviews, scores and user roles in one workflow.':'Система управління кадровим резервом: кандидати, вакансії, заявки, співбесіди, оцінки та ролі користувачів в одному робочому процесі.',built:isEN?'Dashboard, candidates with search and filtering, resumes, vacancies, applications pipeline, interviews, interviewer feedback, soft skills, roles, REST API, health checks and tests.':'Dashboard, кандидати з пошуком і фільтрами, резюме, вакансії, pipeline заявок, співбесіди, відгуки інтерв’юерів, soft skills, ролі, REST API, health checks і тести.',stack:'.NET 8 · ASP.NET Core MVC · EF Core · PostgreSQL/SQLite · Docker · xUnit',link:'https://github.com/MaksBlyshchyk/HRReserveSystem',label:isEN?'Open source':'Відкритий код'},
+  rentech:{type:isEN?'WEB · OPENCART · COMMERCIAL':'WEB · OPENCART · КОМЕРЦІЙНИЙ',title:'Rentech',text:isEN?'Commercial rental site for heavy equipment with catalogue, city selection, bilingual content and a request-first flow.':'Комерційний сайт для оренди спецтехніки з каталогом, вибором міста, двомовністю та сценарієм заявки замість класичної покупки.',built:isEN?'Reworked storefront, rental-request flow, branding, multilingual content and rental-oriented information architecture.':'Перероблено вітрину, сценарій заявки на оренду, брендинг, двомовний контент та структуру під оренду, а не звичайний магазин.',stack:'OpenCart 3 · PHP · SEO · HTML/CSS · UA/RU',link:'https://rentech.com.ua',label:isEN?'Open website':'Відкрити сайт'},
+  automation:{type:isEN?'PYTHON · AUTOMATION · PRIVATE':'PYTHON · АВТОМАТИЗАЦІЯ · PRIVATE',title:isEN?'Business process bots':'Боти для бізнес-процесів',text:isEN?'Automation for requests, roles, payments, notifications, anti-spam and lead handoff to a manager.':'Автоматизація заявок, ролей, оплат, повідомлень, антиспаму та передачі лідів менеджеру.',built:isEN?'Conversation flows, admin actions, role checks, payment handling, scheduled messages and data storage.':'Сценарії діалогів, адмін-дії, перевірка ролей, робота з оплатами, заплановані повідомлення та збереження даних.',stack:'Python · Telegram · PostgreSQL · Redis · Docker',link:'https://t.me/MaksBlischik',label:'Telegram'},
+  data:{type:isEN?'PYTHON · DATA · PRIVATE':'PYTHON · ДАНІ · PRIVATE',title:isEN?'Price & data processing':'Обробка прайсів і даних',text:isEN?'Collection, cleanup, product matching, validation and preparation of ready-to-use exports.':'Збір, очищення, зіставлення товарів, перевірка та підготовка готових файлів.',built:isEN?'Parsing sources, normalizing tables, matching products, removing duplicates and producing consistent exports.':'Парсинг джерел, нормалізація таблиць, зіставлення товарів, видалення дублів і формування готового результату.',stack:'Python · FastAPI · React · PostgreSQL · Playwright',label:isEN?'Private code':'Приватний код'}
+};
+function closeAll(){[projectModal,contactModal].forEach(m=>{if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true')}});document.body.style.overflow=''}
+function openContact(){if(!contactModal)return;closeAll();contactModal.classList.add('open');contactModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>message?.focus(),80)}
+function openProject(key){const p=projectData[key];if(!projectModal||!p)return;closeAll();document.getElementById('modalType').textContent=p.type;document.getElementById('modalTitle').textContent=p.title;document.getElementById('modalText').textContent=p.text;document.getElementById('modalBuilt').textContent=p.built;document.getElementById('modalStack').textContent=p.stack;const visual=document.getElementById('modalVisual');const card=document.querySelector(`.project-card[data-project="${key}"] .project-visual`);visual.innerHTML=card?card.outerHTML:'';const actions=document.getElementById('modalActions');actions.innerHTML='';if(p.link){const a=document.createElement('a');a.className='primary-link';a.href=p.link;a.target='_blank';a.rel='noreferrer';a.textContent=p.label+' ↗';actions.appendChild(a)}const close=document.createElement('button');close.className='modal-close';close.textContent=isEN?'Close':'Закрити';actions.appendChild(close);close.addEventListener('click',closeAll);projectModal.classList.add('open');projectModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+document.querySelectorAll('.contact-open').forEach(b=>b.addEventListener('click',openContact));
+document.querySelectorAll('.project-open').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openProject(b.closest('.project-card')?.dataset.project)}));
+document.querySelectorAll('.modal-close').forEach(b=>b.addEventListener('click',closeAll));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+document.querySelectorAll('[data-channel]').forEach(b=>b.addEventListener('click',()=>{const text=(message?.value||'').trim();if(!text){message?.focus();return}const encoded=encodeURIComponent(text);if(b.dataset.channel==='telegram')window.open('https://t.me/MaksBlischik?text='+encoded,'_blank','noopener,noreferrer');if(b.dataset.channel==='email'){const subject=encodeURIComponent(isEN?'Portfolio inquiry':'Запит із портфоліо');window.location.href=`mailto:maks2006bl@gmail.com?subject=${subject}&body=${encoded}`}}));
+const navLinks=[...document.querySelectorAll('.site-header nav a')];const sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);if('IntersectionObserver'in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-25% 0px -60% 0px',threshold:.01});sections.forEach(s=>io.observe(s))}
+const menu=document.querySelector('.menu-toggle');menu?.addEventListener('click',()=>{document.body.classList.toggle('mobile-open');const nav=document.querySelector('.site-header nav');if(nav)nav.classList.toggle('mobile-nav')});
